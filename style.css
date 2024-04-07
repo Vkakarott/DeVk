@@ -44,7 +44,7 @@ footer {
     width: 100%;
     background-color: transparent;
     padding: 10px;
-    padding-left: 70px;
+    padding-left: 150px;
 }
 footer i {
     color: white;
@@ -57,8 +57,9 @@ footer i {
     height: 60%;
     padding: 30px;
     margin-top: 40px;
+    margin-left: 100px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .logo {
     font-family: "Archivo Black", sans-serif;
@@ -77,6 +78,7 @@ ul {
     display: flex;
     gap: 20px;
     text-decoration: none;
+    margin: 0;
 }
 .navigate {
     background-color: transparent;
@@ -95,8 +97,8 @@ a:hover {
 }
 .label {
     font-family: "Rajdhani", sans-serif;
-    font-weight: 400;
-    font-size: 12vw;   
+    font-weight: 300;
+    font-size: 11vw;   
 }
 .name {
     display: flex;
@@ -109,5 +111,26 @@ a:hover {
     display: flex;
     position: absolute;
     z-index: -1;
-    top: 37%;
+    top: 32%;
+}
+.content {
+    display: flex;
+    position: fixed;
+    top: 20%;
+    right: 5%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+.back-tec {
+    width: 320px;
+    height: 320px;   
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    top: 27%;
+    right: 10%;
+    opacity: 0.1;
 }
