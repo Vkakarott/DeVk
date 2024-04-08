@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
     --red-vk: #DE3C4B;
-    --black-ground: #1d1d1e;
+    --black-ground: #19191a;
     --green-hack: rgb(53, 244, 60);
     --cyan-flour: #4DFFF3;
     --blue-punk: rgb(38, 0, 255);
@@ -41,7 +43,7 @@ footer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     background-color: transparent;
     padding: 10px;
     padding-left: 150px;
@@ -57,7 +59,6 @@ footer i {
     height: 60%;
     padding: 30px;
     margin-top: 40px;
-    margin-left: 100px;
     align-items: center;
     justify-content: flex-start;
 }
@@ -72,6 +73,11 @@ footer i {
 .social {
     display: flex;
     gap: 20px;
+}
+.social-about {
+    display: flex;
+    gap: 20px;
+    margin-left: 10vw;
 }
 ul {
     list-style: none;
@@ -96,22 +102,23 @@ a:hover {
     color: var(--blue-punk);
 }
 .label {
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 300;
-    font-size: 11vw;   
+    font-family: "Orbitron", sans-serif;
+    font-weight: normal;
+    font-size: 7vw;
+    margin-left: 7px;
 }
 .name {
     display: flex;
+    margin-left: 7%;
 }
 .back-squad {
-    width: 120px;
-    height: 200px;
+    width: 8%;
+    height: 13vw;
     background-color: var(--blue-punk);
     border-radius: 10px;    
     display: flex;
     position: absolute;
     z-index: -1;
-    top: 32%;
 }
 .content {
     display: flex;
@@ -130,7 +137,66 @@ a:hover {
     display: flex;
     position: absolute;
     z-index: -1;
-    top: 27%;
+    top: 25%;
     right: 10%;
     opacity: 0.1;
+}
+.container-about {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 70vh;
+    padding: 30px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.about-me {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 60vh;
+    padding: 30px;
+    margin-top: 70px;
+    margin-left: 50px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.email {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 70px;
+    font-family: "Roboto", sans-serif;
+
+    h1 {
+        font-size: 40px;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        font-size: 15px;
+        font-weight: 300;
+        margin: 0;
+        padding: 0;
+        margin-top: -5px;
+    }
+    .line{
+        width: 150px;
+        height: 3px;
+        background-color: var(--blue-punk);
+        top: -3px;
+        position: relative;
+        z-index: -1;
+    }
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 70px;
+    font-family: "Space Mono", sans-serif;
+    width: 40vw;
+    line-break: auto;
 }
