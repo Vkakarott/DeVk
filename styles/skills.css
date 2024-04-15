@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --red-vk: #DE3C4B;
+    --blue-sat: #2100DB;
+    --blue-strong: #0F0061;
+    --blue-light: #0061FF;
+    --yellow: #FFDF00;
+    --green-hack: #0AFF00;
+    --red-vk: #FF2100;
     --black-ground: #19191a;
-    --green-hack: rgb(53, 244, 60);
-    --cyan-flour: #4DFFF3;
-    --blue-punk: rgb(38, 0, 255);
+    --blue-punk: #15008A;
 }
 
 .hard-section {
@@ -24,7 +27,6 @@
     display: flex;
     margin: 0;
     flex-direction: column;
-    background-color: rgba(37, 37, 52, 0.5);
 }
 
 .area1 {
@@ -37,6 +39,9 @@
 
 .area3 {
     grid-area: 1 / 2 / 4 / 2; 
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
 }
 
 .area4 {
@@ -44,15 +49,11 @@
 }
 
 .area5 {
-    grid-area: 2 / 3 / 4 / 3; 
+    grid-area: 2 / 3 / 5 / 3;
 }
 
 .area7 {
     grid-area: 4 / 2 / 4 / 2; 
-}
-
-.area8 {
-    grid-area: 4 / 3 / 4 / 3; 
 }
 
 .grid-item > h1 {
@@ -64,10 +65,10 @@
 }
 
 .grid-item > span {
-    width: 150px;
+    width: 140px;
     height: 5px;
     margin-left: 15px;
-    background-color: var(--blue-punk);
+    background-color: var(--red-vk);
     margin-top: -20px;
 }
 
@@ -93,12 +94,12 @@
 .grid-item > p {
     font-family: "Space Mono", monospace;
     font-size: 0.9em;
-    margin: 12px 17px;
+    margin: 12px 20px 15px 16px;
 }
 
 .grid-item > ul > li > img {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
 }
 
 .grid-item > h2, h3 {
@@ -115,10 +116,91 @@
 }
 
 .ufg {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     position: absolute;
     z-index: -1;
-    margin-left: 25%;
-    opacity: 0.3;
+    margin-left: 20%;
+    opacity: 0.2;
+}
+
+.skill {
+    font-size: 0.9em;
+}
+
+.resume {
+    width: 60%;
+    padding: 10px;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0 0 7px;
+    background-color: rgba(0, 0, 0, 0.068);
+}
+
+aside > p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.7em;
+    color: rgba(127, 127, 127, 0.445);
+}
+
+.dados {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.name {
+    font-size: 1.2em;
+    grid-area: 1 / 2 / 1 / 2;
+    margin: 5px 0 0 0;
+}
+
+.local {
+    font-size: 0.8em;
+    grid-area: 2 / 2 / 2 / 2;
+}
+
+.email {
+    font-size: 0.8em;
+    grid-area: 3 / 2 / 3 / 2;
+}
+
+.phone {
+    font-size: 0.8em;
+    grid-area: 4 / 2 / 4 / 2;
+}
+
+.dados > p {
+    margin: 0;
+    
+}
+
+.dados > img {
+    grid-area: 1 / 1 / 5 / 1;
+    width: 100px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 5px 10px 0 0;
+}
+
+aside > button {
+    background-color: transparent;
+    color: rgba(177, 177, 177, 0.522);
+    border: none;
+    padding: 5px;
+    font-family: "Space Mono", monospace;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+aside > button > a {
+    text-decoration: none;
+    color: rgba(177, 177, 177, 0.522);
 }

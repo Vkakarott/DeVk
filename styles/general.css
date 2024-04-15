@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --red-vk: #DE3C4B;
+    --blue-sat: #2100DB;
+    --blue-strong: #0F0061;
+    --blue-light: #0061FF;
+    --yellow: #FFDF00;
+    --green-hack: #0AFF00;
+    --red-vk: #FF2100;
     --black-ground: #19191a;
-    --green-hack: rgb(53, 244, 60);
-    --cyan-flour: #4DFFF3;
-    --blue-punk: rgb(38, 0, 255);
+    --blue-punk: #15008A;
 }
 
 html {
