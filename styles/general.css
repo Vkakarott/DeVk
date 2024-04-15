@@ -26,7 +26,7 @@ body {
     background-color: var(--black-ground);
     color: white;
     font-family: "Roboto", sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header {
@@ -37,6 +37,7 @@ header {
     padding: 10px;
     background-color: var(--black-ground);
     flex-direction: row;
+    flex-wrap: wrap;    
     
     .logo {
         font-family: "Archivo Black", sans-serif;
@@ -60,6 +61,7 @@ header {
         gap: 20px;
         text-decoration: none;
         margin: 0;
+        padding: 0;
     }
     a {
         text-decoration: none;
@@ -68,7 +70,7 @@ header {
 }
 
 a:hover {
-    color: var(--blue-punk);
+    color: var(--red-vk);
 }
 
 main {
@@ -86,8 +88,7 @@ footer {
     align-items: center;
     width: 100%;
     background-color: transparent;
-    padding: 10px;
-    padding-left: 150px;
+    padding: 10px 110px;
 
     i {
         color: white;
