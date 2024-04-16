@@ -25,6 +25,7 @@
 .name {
     display: flex;
     margin-left: 7%;
+    cursor: default;
 }
 
 .label {
