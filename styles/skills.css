@@ -13,7 +13,7 @@
 
 .hard-section {
     height: calc(100% - 10px);
-    width: calc(100vw - 60px);
+    width: calc(100vw - 10px);
     padding: 5px;
     display: grid;
     grid-template-columns: 1.5fr 2.2fr 1.1fr;
@@ -23,9 +23,7 @@
 
 .grid-item {
     padding: 0 25px;
-    border-radius: 15px;
     display: flex;
-    margin: 0;
     flex-direction: column;
 }
 
@@ -41,7 +39,8 @@
     grid-area: 1 / 2 / 4 / 2; 
     display: flex;
     flex-direction: row;
-    padding: 5px;
+    padding: 0 5px;
+    gap: 10px;
 }
 
 .area4 {
@@ -53,7 +52,8 @@
 }
 
 .area7 {
-    grid-area: 4 / 2 / 4 / 2; 
+    grid-area: 4 / 2 / 4 / 2;
+    padding: 15px 25px;
 }
 
 .grid-item > h1 {
@@ -65,11 +65,10 @@
 }
 
 .grid-item > span {
-    width: 140px;
-    height: 5px;
+    width: 130px;
+    height: 4px;
     margin-left: 15px;
     background-color: var(--red-vk);
-    margin-top: -20px;
 }
 
 .grid-item > ul {
@@ -94,7 +93,7 @@
 .grid-item > p {
     font-family: "Space Mono", monospace;
     font-size: 0.9em;
-    margin: 12px 20px 15px 16px;
+    padding: 12px 20px 15px 16px;
 }
 
 .grid-item > ul > li > img {
@@ -104,24 +103,19 @@
 
 .grid-item > h2, h3 {
     font-family: "Roboto", sans-serif;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: white;
     text-align: flex-start;
-    margin-left: 15px;
-}
-
-.grid-item > h3 {
-    font-size: 1em;
-    margin-top: -10px;
+    padding: 15px 0 0 15px;
 }
 
 .ufg {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     position: absolute;
     z-index: -1;
     margin-left: 20%;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .skill {
@@ -140,23 +134,23 @@ aside {
     justify-content: flex-start;
     border-radius: 10px;
     padding: 15px;
-    margin: 10px 0 0 7px;
-    background-color: rgba(0, 0, 0, 0.068);
-}
-
-aside > p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.7em;
-    color: rgba(127, 127, 127, 0.445);
+    margin: 10px 0;
+    background-color: rgba(0, 0, 0, 0.065);
 }
 
 .dados {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 5px;
+}
+
+.dados > p > i {
+    font-size: 1.1em;
+    color: rgba(177, 177, 177, 0.7);
 }
 
 .name {
-    font-size: 1.2em;
+    font-size: 1.1em;
     grid-area: 1 / 2 / 1 / 2;
     margin: 5px 0 0 0;
 }
@@ -176,22 +170,16 @@ aside > p {
     grid-area: 4 / 2 / 4 / 2;
 }
 
-.dados > p {
-    margin: 0;
-    
-}
-
 .dados > img {
     grid-area: 1 / 1 / 5 / 1;
     width: 100px;
     height: 120px;
     border-radius: 50%;
-    margin: 5px 10px 0 0;
+    padding: 5px;
 }
 
 aside > button {
     background-color: transparent;
-    color: rgba(177, 177, 177, 0.522);
     border: none;
     padding: 5px;
     font-family: "Space Mono", monospace;
@@ -203,4 +191,9 @@ aside > button {
 aside > button > a {
     text-decoration: none;
     color: rgba(177, 177, 177, 0.522);
+}
+
+aside > button > a > i {
+    font-size: 1em;
+    color: rgba(177, 177, 177, 0.5);
 }

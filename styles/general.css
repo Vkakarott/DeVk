@@ -17,72 +17,69 @@
     font-size: 16px;
 }
 
-html {
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
     display: flex;
-    width: 100vw;
-    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0;
-    padding: 0;
     background-color: var(--black-ground);
     color: white;
     font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
 }
 
 header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     background-color: var(--black-ground);
     flex-direction: row;
-    flex-wrap: wrap;    
-    
-    .logo {
-        font-family: "Archivo Black", sans-serif;
-        color: white;
-        font-size: 22px;
-        font-weight: 500;
-        font-style: normal;
-        text-wrap: nowrap;
-        cursor: default;
-    }
-    .navigate {
-        background-color: transparent;
-        width: 70px;
-        padding: 7px;
-        margin: 0;
-        border: none;
-        font-size: 17px;
-    }
-    ul {
-        display: flex;
-        list-style: none;
-        gap: 20px;
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
-    }
-    a {
-        text-decoration: none;
-        color: white;
-    }
+    flex-wrap: wrap;     
+}
+
+.logo {
+    font-family: "Archivo Black", sans-serif;
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    text-wrap: nowrap;
+    cursor: default;
+}
+
+.navigate {
+    background-color: transparent;
+    width: 70px;
+    padding: 7px;
+    border: none;
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 a:hover {
     color: var(--red-vk);
 }
 
+ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
 main {
     display: flex;
-    width: 100%;
+    width: calc(100% - 20px);
     flex-grow: 1;
     padding: 10px;
     align-items: flex-start;
@@ -93,17 +90,18 @@ footer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 220px);
     background-color: transparent;
     padding: 10px 110px;
+}
 
-    i {
-        color: white;
-        font-size: 30px;
-    }
-    .social {
-        display: flex;
-        gap: 22px;
-        margin-left: 11vw;
-    }
+i {
+    color: white;
+    font-size: 30px;
+}
+
+.social {
+    display: flex;
+    gap: 22px;
+    margin-left: 7vw;
 }
