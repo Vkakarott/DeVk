@@ -197,3 +197,18 @@ aside > button > a > i {
     font-size: 1em;
     color: rgba(177, 177, 177, 0.5);
 }
+
+.resume > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 20px;
+}
+
+.resume > ul > p {
+    font-size: 0.9em;
+}
+
+.resume > ul > li {
+    font-size: 0.9em;
+}
