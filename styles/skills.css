@@ -59,9 +59,14 @@
 .grid-item > h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.4em;
+    width: min-content;
     color: white;
     text-align: flex-start;
     margin-left: 15px;
+    text-wrap: nowrap;
+    border-width: 0 0 4px 0;
+    border-style: solid;
+    border-color: var(--red-vk);
 }
 
 .grid-item > span {
@@ -124,7 +129,7 @@
 
 .resume {
     width: 60%;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
 }
 
 aside {
@@ -211,4 +216,5 @@ aside > button > a > i {
 
 .resume > ul > li {
     font-size: 0.9em;
+    opacity: 0.9;
 }
