@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
+    --color-primary: #FF2100;
+    --color-itens: #FFFFFF;
+    --background-secondary: rgba(0, 0, 0, 0.065);
+
     --blue-sat: #2100DB;
     --blue-strong: #0F0061;
     --blue-light: #0061FF;
@@ -13,10 +17,15 @@
 
 .hard-section {
     height: calc(100% - 10px);
-    width: calc(100vw - 10px);
+    width: calc(100% - 10px);
     padding: 5px;
     display: grid;
-    grid-template-columns: 1.5fr 2.2fr 1.1fr;
+    grid-template-areas: 
+        "lenguages resume can-do"
+        "lenguages resume skills"
+        "tools resume skills"
+        "tools edu skills";
+    grid-template-columns: 1.3fr 2.2fr 1.1fr;
     grid-template-rows: auto auto auto auto;
     gap: 10px;
 }
@@ -27,32 +36,32 @@
     flex-direction: column;
 }
 
-.area1 {
-    grid-area: 1 / 1 / 3 / 1;
+.lenguages { 
+    grid-area: lenguages; 
 }
 
-.area2 {
-    grid-area: 3 / 1 / 5 / 1;   
+.tools { 
+    grid-area: tools; 
 }
 
-.area3 {
-    grid-area: 1 / 2 / 4 / 2; 
+.resume-dados {
+    grid-area: resume; 
     display: flex;
     flex-direction: row;
     padding: 0 5px;
     gap: 10px;
 }
 
-.area4 {
-    grid-area: 1 / 3 / 2 / 3; 
+.can-do {
+    grid-area: can-do; 
 }
 
-.area5 {
-    grid-area: 2 / 3 / 5 / 3;
+.skills-ul {
+    grid-area: skills;
 }
 
-.area7 {
-    grid-area: 4 / 2 / 4 / 2;
+.edu {
+    grid-area: edu;
     padding: 15px 25px 10px 25px;
 }
 
@@ -60,20 +69,13 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 1.4em;
     width: min-content;
-    color: white;
+    color: var(--color-itens);
     text-align: flex-start;
     margin-left: 15px;
     text-wrap: nowrap;
     border-width: 0 0 4px 0;
     border-style: solid;
-    border-color: var(--red-vk);
-}
-
-.grid-item > span {
-    width: 130px;
-    height: 4px;
-    margin-left: 15px;
-    background-color: var(--red-vk);
+    border-color: var(--color-primary);
 }
 
 .grid-item > ul {
@@ -83,7 +85,7 @@
     align-items: flex-start;
     padding: 17px;
     gap: 5px;
-    margin: 0 25px 15px 0;
+    margin: 0 0 15px 0;
 }
 
 .grid-item > ul > li {
@@ -91,7 +93,7 @@
     align-items: center;
     justify-content: space-between;
     font-family: "Space Mono", monospace;
-    color: white;
+    color: var(--color-itens);
     width: 100%;
 }
 
@@ -109,7 +111,7 @@
 .grid-item > h2, h3 {
     font-family: "Roboto", sans-serif;
     font-size: 1.1em;
-    color: white;
+    color: var(--color-itens);
     text-align: flex-start;
     padding: 15px 0 0 15px;
 }
@@ -118,7 +120,7 @@
     width: 120px;
     height: 120px;
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     margin-left: 20%;
     opacity: 0.8;
 }
@@ -140,7 +142,7 @@ aside {
     border-radius: 10px;
     padding: 15px;
     margin: 10px 0;
-    background-color: rgba(0, 0, 0, 0.065);
+    background-color: var(--background-secundary);
 }
 
 .dados {

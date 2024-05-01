@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --blue-sat: #2100DB;
-    --blue-strong: #0F0061;
-    --blue-light: #0061FF;
-    --yellow: #FFDF00;
-    --green-hack: #0AFF00;
-    --red-vk: #FF2100;
-    --black-ground: #19191a;
-    --blue-punk: #15008A;
+    --background-color: #19191a;
+    --color-itens: #FFFFFF;
+    --hover-color: #FF2100;
+}
+
+.light-mode:root {
+    --background-color: #FFFFFF;
+    --color-itens: #000000;
+    --hover-color: #5904c7;
 }
 
 *{
@@ -22,59 +23,54 @@ html, body {
     width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    background-color: var(--background-color);
 }
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--black-ground);
-    color: white;
+    background-color: var(--background-color);
+    color: var(--color-itens);
     font-family: "Roboto", sans-serif;
 }
 
 header {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;     
     justify-content: space-evenly;
     align-items: center;
     width: calc(100% - 20px);
     padding: 10px;
-    background-color: var(--black-ground);
-    flex-direction: row;
-    flex-wrap: wrap;     
 }
 
 .logo {
     font-family: "Archivo Black", sans-serif;
-    color: white;
-    font-size: 22px;
+    font-size: 1.4em;
     font-weight: 500;
     font-style: normal;
     text-wrap: nowrap;
     cursor: default;
 }
 
-.navigate {
+nav {
+    display: flex;
     background-color: transparent;
-    width: 70px;
-    padding: 7px;
-    border: none;
-    font-size: 1em;
+    padding: 7px 20px;
+    gap: 30px;
 }
 
 a {
+    display: flex;
+    width: 70px;
+    justify-content: center;
     text-decoration: none;
-    color: white;
+    color: var(--color-itens);
 }
 
 a:hover {
-    color: var(--red-vk);
-}
-
-ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
+    color: var(--hover-color);
 }
 
 main {
@@ -88,7 +84,7 @@ main {
 
 footer {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: calc(100% - 220px);
     background-color: transparent;
@@ -96,12 +92,11 @@ footer {
 }
 
 i {
-    color: white;
-    font-size: 30px;
+    color: var(--color-itens);
+    font-size: 1.9em;
 }
 
 .social {
     display: flex;
-    gap: 22px;
     margin-left: 7vw;
 }
