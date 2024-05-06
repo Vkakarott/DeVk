@@ -58,8 +58,8 @@ main {
     flex-direction: row;
     justify-content: space-around;
     font-family: "Roboto", sans-serif;
-    width: 90%;
-    padding: 10px 0;
+    width: 80%;
+    padding: 10px 30px 10px 0;
 }
 
 ul {

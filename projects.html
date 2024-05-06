@@ -26,19 +26,22 @@
             <img src="/images/cone.png" alt="" class="cone">
         </section>
         <nav class="tags">
-                <button onclick="selectAreaView()" class="tag">WebSites</button>
-                <button onclick="selectAreaView()" class="tag">Desktop</button>
-                <button onclick="selectAreaView()" class="tag">Mobile</button>
-                <button onclick="selectAreaView()" class="tag">Games</button>
-                <button onclick="selectAreaView()" class="tag">Others</button>
+            <button onclick="selectAreaView('web')" class="tag">WebSites</button>
+            <button onclick="selectAreaView('desktop')" class="tag">Desktop</button>
+            <button onclick="selectAreaView('mobile')" class="tag">Mobile</button>
+            <button onclick="selectAreaView('games')" class="tag">Games</button>
+            <button onclick="selectAreaView('others')" class="tag">Others</button>
         </nav>
+        
         <section class="projects">
-            <section id="section-web">Websites</section>
-            <section id="section-desktop">Desktop</section>
-            <section id="section-mobile">Mobile</section>
-            <section id="section-games">Games</section>
-            <section id="section-others">Others</section>
+            <section class="project-sections" id="section-web">Websites</section>
+            <section class="project-sections" id="section-desktop">Desktop</section>
+            <section class="project-sections" id="section-mobile">Mobile</section>
+            <section class="project-sections" id="section-games">Games</section>
+            <section class="project-sections" id="section-others">All</section>
         </section>
     </main>
+
+    <script src="/src/project.js"></script>
 </body>
 </html>

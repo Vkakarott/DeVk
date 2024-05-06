@@ -2,6 +2,9 @@
 
 :root {
     --background-awaited: #ff4800;
+    --itens-color: #fff;
+    --itens-color2: #202020;
+    --background-color: #19191a;
 
     --blue-sat: #2100DB;
     --blue-strong: #0F0061;
@@ -18,7 +21,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 30px 10px;
+    padding: 30px 10px 10px;
     gap: 7px;
 }
 
@@ -28,22 +31,46 @@
     flex-direction: column;
     background-color: var(--background-awaited);
     padding: 10px;
-    width: 70%;
-    height: 170px;
+    gap: 15px;
+    width: 700px;
+    height: 150px;
     border-radius: 15px;
 }
 
 .emphasis > img {
     position: absolute;
-    opacity: 0.9;
     right: 0;
     top: 0;
     height: 200px;
     border-radius: 15px;
 }
 
+.emphasis > h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    color: var(--itens-color2);
+    opacity: 0.7;
+    margin: 0;
+}
+
+.emphasis > p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    color: var(--itens-color2);
+    opacity: 0.7;
+    margin: 0;
+}
+
+.emphasis > h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    color: var(--itens-color2);
+    margin: 0;
+}
+
 .tags {
     display: flex;
+    padding: 7px 20px 0 20px;
     gap: 20px;
     justify-content: space-evenly;
 }
@@ -62,8 +89,14 @@
 
 .projects {
     display: flex;
-    background-color: var(--red-vk);
     width: 90%;
     flex-grow: 1;
-    padding: 15px;
+}
+
+.projects > section {
+    display: flex;
+    position: absolute;
+    background-color: var(--background-color);
+    gap: 10px;
+    width: 100%;
 }
