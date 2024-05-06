@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
+    --background-awaited: #ff4800;
+
     --blue-sat: #2100DB;
     --blue-strong: #0F0061;
     --blue-light: #0061FF;
@@ -17,95 +19,45 @@
     align-items: center;
     justify-content: flex-start;
     padding: 30px 10px;
-    gap: 20px;
+    gap: 7px;
 }
 
 .emphasis {
-    display: none;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: var(--background-awaited);
     padding: 10px;
-    background-color: var(--yellow);
-    width: 80%;
-    min-height: 170px;
+    width: 70%;
+    height: 170px;
     border-radius: 15px;
-    margin-bottom: 25px;
+}
+
+.emphasis > img {
+    position: absolute;
+    opacity: 0.9;
+    right: 0;
+    top: 0;
+    height: 200px;
+    border-radius: 15px;
 }
 
 .tags {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     justify-content: space-evenly;
 }
 
 .tags > button {
     padding: 5px;
     background-color: transparent;
+    color: var(--itens-color);
     width: 100px;
     text-align: center;
     align-items: center;
-}
-
-.projects {
-    display: flex;
-    background-color: var(--red-vk);
-    width: 90%;
-    flex-grow: 1;
-    padding: 15px;
-}
-
-.projects > section {
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-    padding: 15px;
-    position: absolute;
-}
-
-:root {
-    --blue-sat: #2100DB;
-    --blue-strong: #0F0061;
-    --blue-light: #0061FF;
-    --yellow: #FFDF00;
-    --green-hack: #0AFF00;
-    --red-vk: #FF2100;
-    --black-ground: #19191a;
-    --blue-punk: #15008A;
-}
-
-.container-projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 30px 10px;
-    gap: 20px;
-}
-
-.emphasis {
-    padding: 10px;
-    background-color: var(--yellow);
-    width: 80%;
-    min-height: 170px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-}
-
-.tags {
-    display: flex;
-    gap: 10px;
-    justify-content: space-evenly;
-}
-
-.tags > ul {
-    list-style-type: none;
-    display: flex;
-    gap: 15px;
-}
-
-.tags > ul > li {
-    padding: 5px;
-    background-color: var(--blue-light);
-    width: 100px;
-    text-align: center;
-    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .projects {

@@ -58,7 +58,7 @@ main {
     flex-direction: row;
     justify-content: space-around;
     font-family: "Roboto", sans-serif;
-    width: 100%;
+    width: 90%;
     padding: 10px 0;
 }
 
