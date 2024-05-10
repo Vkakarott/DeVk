@@ -21,7 +21,6 @@
 html, body {
     height: 100vh;
     width: 100vw;
-    min-width: 560px;
     overflow: hidden;
     scroll-behavior: smooth;
     background-color: var(--background-color);

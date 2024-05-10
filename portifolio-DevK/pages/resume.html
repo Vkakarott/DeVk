@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vk Dev</title>
-    <link rel="stylesheet" href="styles/general.css">
-    <link rel="stylesheet" href="styles/skills.css">
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/resume.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body translate="no">
     <header>
         <div class="logo">VK DEV</div>
+        <button class="navbar" onclick="navBarToggle()">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+        </button>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="resume.html">Resume</a>
-            <a href="projects.html">Projects</a>
+          <a href="../index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <a href="">Projects</a>
         </nav>
-    </header>
+      </header>
     <main>
         <section class="hard-section">
             <div class="grid-item lenguages">
@@ -69,9 +72,12 @@
                     </ul>
                 </div>
                 <aside>
-                    Do you want to download my CV ? <button><a href="/assets/JoaoVitorGomesDeOliveira_CV.pdf" download="JoaoVitorGomesDeOliveira_CV.pdf"><i class="bi bi-download"></i></a></button>
-                    Do you want to hire me ? <button><a href="https://www.linkedin.com/in/vitor-gomes-a66212271">Linkedin</a></button>
-                    Want to see my projects ? <button><a href="https://github.com/Vkakarott?tab=repositories">Github</a></button>
+                    <p>Do you want to download my CV ?</p> 
+                    <button><a href="../assets/downloads/JoaoVitorGomesDeOliveira_CV.pdf" download="JoaoVitorGomesDeOliveira_CV.pdf"><i class="bi bi-download"></i></a></button>
+                    <p>Do you want to hire me ?</p>
+                    <button><a href="https://www.linkedin.com/in/vitor-gomes-ti">Linkedin</a></button>
+                    <p>Want to see my projects ?</p>
+                    <button><a href="https://github.com/Vkakarott?tab=repositories">Github</a></button>
                 </aside>
             </div>
             <div class="grid-item can-do">
@@ -95,11 +101,11 @@
                 <h1>EDUCATION</h1> 
                 <h2>Goias Federal University</h2>
                 <h3>Computer Science</h3>
-                <img class="ufg" src="images/UFG.png" alt="logo-ufg">
+                <img class="ufg" src="../assets/images/UFG.png" alt="logo-ufg">
             </div>
         </section>
     </main>
 
-    <script src="/src/main.js"></script>
+    <script src="../src/main.js"></script>
 </body>
 </html>
