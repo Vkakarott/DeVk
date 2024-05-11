@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vk Dev</title>
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="../styles/projects.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body translate="no">
+    <header>
+        <div class="logo">VK DEV</div>
+        <button class="navbar" onclick="navBarToggle()">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+        </button>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <a href="projects.html">Projects</a>
+        </nav>
+      </header>
+    <main class="container-projects">
+        <section class="emphasis">
+            <h1>Coming soon...</h1>
+            <p>In order to execute my codes in C language within the web</p>
+            <h2>C Compiler in WebAssembly</h2>
+            <img src="../assets/images/cone.png" alt="" class="cone">
+        </section>
+        <nav class="tags">
+            <button onclick="selectTypeShow('web')" class="tag">WebSites</button>
+            <button onclick="selectTypeShow('desktop')" class="tag">Desktop</button>
+            <button onclick="selectTypeShow('mobile')" class="tag">Mobile</button>
+            <button onclick="selectTypeShow('games')" class="tag">Games</button>
+            <button onclick="selectTypeShow('others')" class="tag">Others</button>
+        </nav>
+        
+        <section class="projects">
+            
+        </section>
+    </main>
+
+    <script src="../src/main.js"></script>
+</body>
+</html>
