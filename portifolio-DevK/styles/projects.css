@@ -5,15 +5,8 @@
     --itens-color: #fff;
     --itens-color2: #202020;
     --background-color: #19191a;
-
-    --blue-sat: #2100DB;
-    --blue-strong: #0F0061;
-    --blue-light: #0061FF;
-    --yellow: #FFDF00;
-    --green-hack: #0AFF00;
-    --red-vk: #FF2100;
-    --black-ground: #19191a;
-    --blue-punk: #15008A;
+    --backDivColor: #2b2b2b;
+    --link-color: #0061FF;
 }
 
 .container-projects {
@@ -89,14 +82,47 @@
 
 .projects {
     display: flex;
+    flex-direction: row;
     width: 90%;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-grow: 1;
+    gap: 10px;
 }
 
-.projects > section {
+.item {
     display: flex;
-    position: absolute;
-    background-color: var(--background-color);
-    gap: 10px;
-    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px;
+    width: 250px;
+    aspect-ratio: 2/1.3;
+    border-radius: 10px;
+    background-color: var(--backDivColor);
 }
+
+.projects > div > img {
+    width: 240px;
+    border-radius: 10px;
+}
+
+.projects > div > a {
+    font-size: 0.7em;
+    color: var(--link-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.projects > div > ul {
+    flex-direction: row;
+    display: flex;
+    list-style: none;
+}
+
+.projects > div > ul > li {
+    font-size: 0.7em;
+    margin: 0 5px;
+}
+
