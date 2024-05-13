@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
     --color-primary: #FF2100;
@@ -60,8 +60,13 @@
 }
 
 .edu {
+    position: relative;
     grid-area: edu;
     padding: 15px 25px 10px 25px;
+}
+
+.edu > h1, h2, h3 {
+    z-index: 1;
 }
 
 .grid-item > h1 {
@@ -120,7 +125,7 @@
     height: 120px;
     position: absolute;
     z-index: 0;
-    margin-left: 20%;
+    right: 0;
     opacity: 0.8;
 }
 
@@ -181,10 +186,13 @@ aside > button {
     font-size: 0.8em;
     cursor: pointer;
     margin-bottom: 15px;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 aside > button > a {
     text-decoration: none;
+    width: min-content;
     color: var(--color-secondary);
 }
 
@@ -207,4 +215,52 @@ aside > button > a > i {
 .resume > ul > li {
     font-size: 0.9em;
     opacity: 0.9;
+}
+
+@media screen and (max-width: 1100px) {
+    aside {
+        display: none;
+    }
+    .resume {
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    html, body {
+        overflow-y: scroll;
+    }
+    .hard-section {
+        grid-template-areas: 
+            "resume"
+            "edu"
+            "lenguages"
+            "skills"
+            "tools"
+            "can-do";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 7px;
+        font-size: 0.9em;
+    }
+    
+    .grid-item {
+        padding: 0 10px;
+    }
+    
+    .edu {
+        padding: 10px;
+    }
+    
+    .grid-item > ul > li > img {
+        width: 27px;
+        height: 27px;
+    }
+    
+    .ufg {
+        width: 100px;
+        height: 100px;
+        opacity: 0.5;
+    }
 }
