@@ -7,13 +7,6 @@
     --background-divs: #1e1e20;
 }
 
-.light-mode:root {
-    --color-primary: #0061FF;
-    --color-itens: #000000;
-    --color-itens-two: #778a789c;
-    --background-divs: #f0f0f0;
-}
-
 main {
     gap: 20px;
 }
@@ -40,7 +33,11 @@ main {
 }
 
 .intro > h1 {
-    font-family: "Roboto", sans-serif;
+    width: 14ch;
+    animation: typing 2s steps(14) forwards, blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: monospace;
     font-size: 2.4em;
     color: var(--color-primary);
     
@@ -209,5 +206,21 @@ aside > div {
 
     .details {
         display: none;
+    }
+}
+
+@keyframes typing {
+    0%{
+        width: 0;
+    }
+
+    100% {
+        width: 14ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
     }
 }
