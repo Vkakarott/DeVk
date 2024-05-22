@@ -34,10 +34,12 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    z-index: 1;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     padding: 10px 0;
+    animation: fadeIn 3s;
 }
 
 .logo {
@@ -82,6 +84,7 @@ footer {
     justify-content: flex-start;
     align-items: center;
     width: calc(100% - 220px);
+    z-index: 1;
     background-color: transparent;
     padding: 10px 110px;
 }
@@ -122,5 +125,14 @@ i {
 
     nav.active {
         display: flex;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
