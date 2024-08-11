@@ -3,7 +3,7 @@ let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext("2d");
 let width = canvas.width = window.innerWidth;
 let heigth = canvas.height = window.innerHeight;
-let str = "Js 0111 Node 神 Full Dev run Npm Back ドラゴン front WEB java C React Next 開発者 0000 7";
+let str = "000111 Vk 神 Dev 000 111 ドラゴン WEB C 開発者 0000 7 13";
 let strArr = str.split("");
 let fontSize = 12;
 let columns = width / fontSize;
