@@ -30,7 +30,7 @@ jobs:
       run: ls -alR ./dist
 
     - name: Check for VITE_GITHUB_TOKEN in JavaScript files
-      run: grep 'VITE_GITHUB_TOKEN' ./dist/**/*.js || true
+      run: grep 'VITE_GITHUB_TOKEN' ./dist/assets/*.js || true
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
