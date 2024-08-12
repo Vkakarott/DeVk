@@ -20,6 +20,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+  
+    - name: Debug VITE_GITHUB_TOKEN
+      run: echo "VITE_GITHUB_TOKEN=${{ secrets.VITE_GITHUB_TOKEN }}" || true
 
     - name: Build project
       env:
@@ -31,6 +34,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-
-    - name: Check VITE_GITHUB_TOKEN
-      run: echo "VITE_GITHUB_TOKEN=${{ secrets.VITE_GITHUB_TOKEN }}"
