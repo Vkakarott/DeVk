@@ -26,8 +26,9 @@ jobs:
         VITE_GITHUB_TOKEN: ${{ secrets.VITE_GITHUB_TOKEN }}
       run: npm run build
 
-    - name: Debug VITE_GITHUB_TOKEN
-      run: echo "VITE_GITHUB_TOKEN=${{ secrets.VITE_GITHUB_TOKEN }}" || true
+    - name: Verify Build Output
+      run: |
+        grep 'VITE_GITHUB_TOKEN' ./dist/*.js
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
