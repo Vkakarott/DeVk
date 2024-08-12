@@ -1,7 +1,7 @@
 const containerApi = document.querySelector(".projects");
 
 const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
-console.log("log:",import.meta.env.VITE_GITHUB_TOKEN);
+console.log('VITE_GITHUB_TOKEN:', TOKEN);
 
 let state = { count: 0, data: [] };
 let languages = {};
