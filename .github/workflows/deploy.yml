@@ -20,7 +20,10 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-        VITE_GITHUB_TOKEN=${{ secrets.VITE_GITHUB_TOKEN }}
+
+    - name: Build with environment variable
+      run: |
+        export VITE_GITHUB_TOKEN=${{ secrets.VITE_GITHUB_TOKEN }}
 
     - name: Build project
       env:
