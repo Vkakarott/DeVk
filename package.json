@@ -1,18 +1,16 @@
 {
-  "homepage": "https://vkakarott.github.io/devk/",
-  "name": "portifolio-devk",
-  "private": true,
-  "version": "0.0.0",
+  "name": "red-resonance",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "predploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "vite": "^5.2.0"
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.14",
+    "astro": "^5.5.3",
+    "tailwindcss": "^4.0.14"
   }
 }

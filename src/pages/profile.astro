@@ -1,0 +1,26 @@
+---
+import background from '../assets/background.svg';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <img class="fixed -top-20 -right-50 w-full h-full z-1 filter: blur-3xl" src={background.src} alt="" fetchpriority="high" />
+	<main class="flex-1">
+		
+	</main>
+</Layout>
+
+<style>
+
+	#container {
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		height: 100%;
+	}
+
+	@media screen and (max-width: 768px) {
+		#container {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+</style>

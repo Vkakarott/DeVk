@@ -1,0 +1,27 @@
+---
+import home from '../assets/icons/home.svg';
+import kanban from '../assets/icons/kanban.svg';
+import person from '../assets/icons/person.svg';
+import github from '../assets/icons/github.svg';
+import linkedin from '../assets/icons/linkedin.svg';
+---
+
+<div class="flex bg-zinc-900 rounded-4xl p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 hover:-translate-y-1/5 transition-all duration-300 drop-shadow-[0_30px_30px_rgba(200,200,255,0.5)] z-10">
+    <nav class="flex flex-row p-1 border-1 rounded-3xl gap-3 px-4">
+            <a href="/" class="p-2">
+                <img class="w-5" src={home.src} alt="Home icon" />
+            </a>
+            <a href="/projects/" class="p-2">
+                <img class="w-5" src={kanban.src} alt="Projects icon" />
+            </a>
+            <a href="/profile/" class="p-2">
+                <img class="w-5" src={person.src} alt="Profile icon" />
+            </a>
+            <a href="https://github.com/Vkakarott" target="_blank" class="p-2 pl-3 border-l-1">
+                <img class="w-5" src={github.src} alt="Github icon" />
+            </a>
+            <a href="https://www.linkedin.com/in/vitorgomes-ti/" target="_blank" class="p-2">
+                <img class="w-5" src={linkedin.src} alt="Linkedin icon" />
+            </a>
+    </nav>
+</div>
