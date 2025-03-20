@@ -1,0 +1,66 @@
+--- 
+const { text } = Astro.props;
+---
+<style>
+    .scrambled {
+        filter: blur(0px);
+        transition: filter 0.3s ease-in-out;
+    }
+
+    .revealed {
+        filter: blur(0);
+    }
+</style>
+
+<div class="flex justify-center items-center font-mono text-white z-10">
+    <div id="decryptedText" class="cursor-pointer">{text}</div>
+</div>
+
+<script is:inline>
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+    const textElement = document.getElementById("decryptedText");
+
+    const originalText = textElement.textContent;
+    let isAnimating = false;
+
+    function randomChar() {
+        return characters[Math.floor(Math.random() * characters.length)];
+    }
+
+    function scrambleText(text) {
+        return text.split("").map(char => (char === " " ? " " : randomChar())).join("");
+    }
+
+    function decryptText() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        let currentText = scrambleText(originalText);
+        textElement.textContent = currentText;
+        textElement.classList.add("scrambled");
+
+        let index = 0;
+
+        const interval = setInterval(() => {
+            let newText = currentText.split("").map((char, i) => {
+                if (i <= index) return originalText[i];
+                return randomChar();
+            }).join("");
+
+            textElement.textContent = newText;
+
+            if (index >= originalText.length - 1) {
+                clearInterval(interval);
+                textElement.classList.remove("scrambled");
+                textElement.classList.add("revealed");
+                isAnimating = false;
+            }
+
+            index++;
+        }, 70);
+    }
+
+    decryptText();
+
+    textElement.addEventListener("mouseenter", decryptText);
+</script>
