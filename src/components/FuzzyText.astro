@@ -1,0 +1,108 @@
+---
+const { text } = Astro.props;
+---
+
+<div class="flex justify-center items-center z-10" data-text={text}>
+    <canvas id="fuzzyTextCanvas" class="block z-10"></canvas>
+</div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("fuzzyTextCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const text = canvas.parentElement.dataset.text;
+        const fontSize = 70;
+        const fontWeight = "900";
+        const fontFamily = "Arial, sans-serif";
+        const color = "#ffffff";
+        const baseIntensity = 0.10;
+        const hoverIntensity = 0.4;
+        const fuzzRange = 30;
+
+        let isHovering = false;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth * 0.8;
+            canvas.height = 100;
+            drawText();
+        }
+
+        function drawText() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+            ctx.fillStyle = color;
+            ctx.textBaseline = "middle";
+            
+            const textMetrics = ctx.measureText(text);
+            const textX = (canvas.width - textMetrics.width) / 2;
+            const textY = canvas.height / 2;
+
+            const offscreenCanvas = document.createElement("canvas");
+            const offCtx = offscreenCanvas.getContext("2d");
+            offscreenCanvas.width = textMetrics.width + 20;
+            offscreenCanvas.height = fontSize * 1.2;
+
+            offCtx.font = ctx.font;
+            offCtx.fillStyle = color;
+            offCtx.textBaseline = "middle";
+            offCtx.fillText(text, 10, offscreenCanvas.height / 2);
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let intensity = isHovering ? hoverIntensity : baseIntensity;
+
+                for (let y = 0; y < offscreenCanvas.height; y++) {
+                    let dx = Math.floor(intensity * (Math.random() - 0.5) * fuzzRange);
+                    ctx.drawImage(
+                        offscreenCanvas,
+                        0, y, offscreenCanvas.width, 1,
+                        textX + dx, textY - offscreenCanvas.height / 2 + y, offscreenCanvas.width, 1
+                    );
+                }
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        function checkHover(event) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const textMetrics = ctx.measureText(text);
+            const textX = (canvas.width - textMetrics.width) / 2;
+            const textY = canvas.height / 2;
+
+            const textWidth = textMetrics.width;
+            const textHeight = fontSize * 0.8;
+
+            isHovering = x >= textX && x <= textX + textWidth && y >= textY - textHeight / 2 && y <= textY + textHeight / 2;
+        }
+
+        function checkTouch(event) {
+            const touch = event.touches[0];
+            if (!touch) return;
+            checkHover({ clientX: touch.clientX, clientY: touch.clientY });
+        }
+
+        canvas.addEventListener("mouseenter", () => console.log("menter"));
+        canvas.addEventListener("mousemove", () => console.log("mmove"));
+        canvas.addEventListener("mouseleave", () => console.log("mleave"));
+        canvas.addEventListener("touchmove", () => console.log("tmove"));
+        canvas.addEventListener("touchend", () => console.log("tend"));
+        canvas.addEventListener("click", () => console.log("click"));
+        canvas.addEventListener("mouseenter", () => (isHovering = true));
+        canvas.addEventListener("mousemove", checkHover);
+        canvas.addEventListener("mouseleave", () => (isHovering = false));
+        canvas.addEventListener("touchmove", checkTouch, { passive: false });
+        canvas.addEventListener("touchend", () => (isHovering = false));
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+    });
+</script>
