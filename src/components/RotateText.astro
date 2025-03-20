@@ -1,0 +1,46 @@
+---
+const { texts } = Astro.props;
+---
+
+<div class="flex justify-center items-center w-full z-10 mb-15 bg-amber-200">
+    <div class="text-4xl text-nowrap font-bold text-white">
+        {texts.map((text: string, i: number) => (
+            console.log(text),
+            <span class="absolute text transition-all ease-in-out duration-1000 opacity-0 blur-2xl" 
+                class:list={{ "active": i === 0 }}>
+                {text}
+            </span>
+        ))}
+    </div>
+</div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const texts = document.querySelectorAll('.text');
+        let index = 0;
+
+        function rotateText() {
+            texts[index].classList.remove('active', 'opacity-100', 'blur-0');
+            texts[index].classList.add('opacity-0', 'blur-2xl');
+
+            index = (index + 1) % texts.length;
+
+            texts[index].classList.remove('opacity-0', 'blur-2xl');
+            texts[index].classList.add('active', 'opacity-100', 'blur-0');
+        }
+
+        setInterval(rotateText, 3000);
+    });
+</script>
+
+<style>
+    .text {
+        transform: translateX(-50%);
+        transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+    }
+
+    .active {
+        opacity: 1 !important;
+        filter: blur(0px) !important;
+    }
+</style>
