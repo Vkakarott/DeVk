@@ -2,7 +2,7 @@
 const { text } = Astro.props;
 ---
 
-<div class="flex justify-center items-center z-10" data-text={text}>
+<div class="flex justify-center items-center" data-text={text}>
     <canvas id="fuzzyTextCanvas" class="block z-10"></canvas>
 </div>
 
@@ -12,9 +12,9 @@ const { text } = Astro.props;
         const ctx = canvas.getContext("2d");
 
         const text = canvas.parentElement.dataset.text;
-        const fontSize = 70;
+        const fontSize = Math.max(37, window.innerWidth * 0.05);
         const fontWeight = "900";
-        const fontFamily = "Arial, sans-serif";
+        const fontFamily = "Audiowide";
         const color = "#ffffff";
         const baseIntensity = 0.10;
         const hoverIntensity = 0.4;
@@ -23,7 +23,7 @@ const { text } = Astro.props;
         let isHovering = false;
 
         function resizeCanvas() {
-            canvas.width = window.innerWidth * 0.8;
+            canvas.width = window.innerWidth;
             canvas.height = 100;
             drawText();
         }
@@ -36,12 +36,12 @@ const { text } = Astro.props;
             ctx.textBaseline = "middle";
             
             const textMetrics = ctx.measureText(text);
-            const textX = (canvas.width - textMetrics.width) / 2;
+            const textX = (canvas.width - textMetrics.width - 20) / 2;
             const textY = canvas.height / 2;
 
             const offscreenCanvas = document.createElement("canvas");
             const offCtx = offscreenCanvas.getContext("2d");
-            offscreenCanvas.width = textMetrics.width + 20;
+            offscreenCanvas.width = textMetrics.width +20;
             offscreenCanvas.height = fontSize * 1.2;
 
             offCtx.font = ctx.font;
@@ -90,12 +90,6 @@ const { text } = Astro.props;
             checkHover({ clientX: touch.clientX, clientY: touch.clientY });
         }
 
-        canvas.addEventListener("mouseenter", () => console.log("menter"));
-        canvas.addEventListener("mousemove", () => console.log("mmove"));
-        canvas.addEventListener("mouseleave", () => console.log("mleave"));
-        canvas.addEventListener("touchmove", () => console.log("tmove"));
-        canvas.addEventListener("touchend", () => console.log("tend"));
-        canvas.addEventListener("click", () => console.log("click"));
         canvas.addEventListener("mouseenter", () => (isHovering = true));
         canvas.addEventListener("mousemove", checkHover);
         canvas.addEventListener("mouseleave", () => (isHovering = false));
@@ -106,3 +100,7 @@ const { text } = Astro.props;
         resizeCanvas();
     });
 </script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+</style>
