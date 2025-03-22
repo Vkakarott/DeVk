@@ -5,7 +5,6 @@ const { texts } = Astro.props;
 <div class="flex justify-center items-center w-full z-10 mb-15">
     <div class="text-4xl text-nowrap font-bold text-white">
         {texts.map((text: string, i: number) => (
-            console.log(text),
             <span class="absolute text transition-all ease-in-out duration-1000 opacity-0 blur-2xl" 
                 class:list={{ "active": i === 0 }}>
                 {text}

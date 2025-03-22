@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Logo from '../components/Logo.astro';
-import background from '../assets/background.svg';
 ---
 
 <!doctype html>
@@ -15,7 +14,6 @@ import background from '../assets/background.svg';
 		<title>Dev Vk</title>
 	</head>
 	<body>
-		<img class="fixed top-0 left-0 w-full h-full z-1 filter: blur-3xl" src={background.src} alt="" fetchpriority="high" />
 		<Logo />
 		<slot />
 		<Nav />
