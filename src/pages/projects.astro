@@ -1,11 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import IconsTec from '../components/IconsTec.astro';
+import HackerEffect from '../components/HackerEffect.astro';
+import DecriptedText from '../components/DecriptedText.astro';
+
+const LENGUAGES = ["c/c-original", "python/python-original", "java/java-original", "javascript/javascript-original", "typescript/typescript-original", "html5/html5-original"];
+const MAIN_TECHNOLOGIES = ["react/react-original", "astro/astro-original", "nodejs/nodejs-original", "fastify/fastify-original", "nestjs/nestjs-original", "spring/spring-original", "nextjs/nextjs-original"];
+const STYLES = ["tailwindcss/tailwindcss-original", "bootstrap/bootstrap-original", "css3/css3-original"];
+const ADDITIONAL_TECHNOLOGIES = ["vitejs/vitejs-original",  "graphql/graphql-plain", "prisma/prisma-original", "postgresql/postgresql-original", "firebase/firebase-original", "selenium/selenium-original", "wordpress/wordpress-plain"];
+const TOOLS = ["linux/linux-original", "vscode/vscode-original", "git/git-original", "figma/figma-original", "stackoverflow/stackoverflow-original", "androidstudio/androidstudio-original", "xcode/xcode-original",];
+
 ---
 
 <Layout>
-	<main class="flex-1 bg-black h-full z-10 w-full text-white">
-		<Card/>
+	<main class="flex-1 z-10 h-full w-full mt-10">
+		<div class="flex flex-wrap gap-4 justify-center z-10 max-h-[80%] overflow-y-scroll py-5 mb-5">		
+			<IconsTec title="Linguagens" description="Tenho experiência em diversas linguagens, sendo Python a linguagem em que estou iniciando o aprendizado e JavaScript a de maior domínio atualmente." tecs={LENGUAGES} size={40}/>
+			<IconsTec title="Principais Tecnologias" description="As tecnologias que mais tenho experiência e domínio, sendo elas as que mais utilizo em meus projetos. (não parece mas sou predominantemente Frontend)" tecs={MAIN_TECHNOLOGIES} size={40}/>
+			<IconsTec title="Estilização" description="Com TailwindCss como a principal ferramenta de estilização, alem do StyleSheet para mobile, também tenho experiência com Bootstrap e CSS puro." tecs={STYLES} size={40}/>
+			<IconsTec title="Tecnologias Adicionais" description="Outras tecnologias que tenho conhecimento e experiência." tecs={ADDITIONAL_TECHNOLOGIES} size={40}/>
+			<IconsTec title="Ferramentas" description="Ferramentas que utilizo em meu dia a dia, como editores de código, ferramentas de versionamento e de design." tecs={TOOLS} size={40}/>
+		</div>
+		<DecriptedText text="Para mais detalhes alguns projetos estão no Github"/>
+		<HackerEffect />
 	</main>
 </Layout>
 
