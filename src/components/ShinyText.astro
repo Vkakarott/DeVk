@@ -1,9 +1,9 @@
 ---
-const { text } = Astro.props;
+const { text, size, justify } = Astro.props;
 ---
 
 <div class="flex justify-center items-center z-10">
-    <div class="shiny-text text-center" style={{ animationDuration: 5 }}>
+    <div class={`shiny-text text-${justify}`} style={{ animationDuration: 5, fontSize: `${size}rem` }}>
         {text}
     </div>
 </div>
