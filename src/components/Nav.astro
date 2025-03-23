@@ -6,22 +6,52 @@ import github from '../assets/icons/github.svg';
 import linkedin from '../assets/icons/linkedin.svg';
 ---
 
-<div class="flex bg-zinc-900 rounded-4xl p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 hover:-translate-y-1/5 transition-all duration-300 drop-shadow-[0_30px_30px_rgba(200,200,255,0.5)] z-10">
+<div id="floatingNav" class="flex bg-zinc-900 rounded-4xl p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 hover:-translate-y-1/5 transition-all duration-300 drop-shadow-[0_30px_30px_rgba(200,200,255,0.4)] z-10">
     <nav class="flex flex-row p-1 border-1 rounded-3xl gap-3 px-4">
-            <a href="/" class="p-2">
+            <a href="/" class="p-2 w-10">
                 <img class="w-5" src={home.src} alt="Home icon" />
             </a>
-            <a href="/projects/" class="p-2">
+            <a href="/projects/" class="p-2 w-10">
                 <img class="w-5" src={kanban.src} alt="Projects icon" />
             </a>
-            <a href="/profile/" class="p-2">
+            <a href="/profile/" class="p-2 w-10">
                 <img class="w-5" src={person.src} alt="Profile icon" />
             </a>
-            <a href="https://github.com/Vkakarott" target="_blank" class="p-2 pl-3 border-l-1">
+            <span class="h-full border-l-1"></span>
+            <a href="https://github.com/Vkakarott" target="_blank" class="p-2 w-10">
                 <img class="w-5" src={github.src} alt="Github icon" />
             </a>
-            <a href="https://www.linkedin.com/in/vitorgomes-ti/" target="_blank" class="p-2">
+            <a href="https://www.linkedin.com/in/vitorgomes-ti/" target="_blank" class="p-2 w-10">
                 <img class="w-5" src={linkedin.src} alt="Linkedin icon" />
             </a>
     </nav>
 </div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.getElementById("floatingNav");
+        let lastTouchY = 0;
+        let isHidden = false;
+
+        function handleTouchMove(event) {
+            const touchY = event.touches[0].clientY;
+
+            if (touchY < lastTouchY && !isHidden) {
+                nav.style.transform = "translateY(-35px)";
+                isHidden = true;
+            } else if (touchY > lastTouchY && isHidden) {
+                nav.style.transform = "translateY(0)";
+                isHidden = false;
+            }
+
+            lastTouchY = touchY;
+        }
+
+        window.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+        window.addEventListener("touchstart", () => {
+            nav.style.transform = "translateY(-35px)";
+            isHidden = false;
+        });
+    });
+</script>
