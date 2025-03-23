@@ -1,0 +1,46 @@
+<div>
+    <canvas style="position: absolute; top: 0; left: 50%;"></canvas>
+</div>
+
+<script is:inline>
+    let canvas = document.querySelector('canvas');
+    let ctx = canvas.getContext("2d");
+
+    function setupCanvas() {
+        canvas.width = window.innerWidth / 2; // Apenas a metade direita
+        canvas.height = window.innerHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    setupCanvas();
+
+    let str = "000111 Vk 神 Dev 000 111 ドラゴン WEB C 開発者 0000 7 13";
+    let strArr = str.split("");
+    let fontSize = 12;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = new Array(columns).fill(1);
+
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#20c20e";
+        ctx.font = `${fontSize}px system-ui`;
+
+        for (let i = 0; i < drops.length; i++) {
+            let text = strArr[Math.floor(Math.random() * strArr.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    setInterval(draw, 33);
+    window.addEventListener("resize", () => {
+        setupCanvas();
+        columns = Math.floor(canvas.width / fontSize);
+        drops = new Array(columns).fill(1);
+    });
+</script>
