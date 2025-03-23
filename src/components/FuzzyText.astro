@@ -22,6 +22,10 @@ const { text } = Astro.props;
 
         let isHovering = false;
 
+        async function loadFont() {
+            await document.fonts.load(`${fontWeight} ${fontSize}px ${fontFamily}`);
+        }
+
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = 100;
@@ -97,7 +101,9 @@ const { text } = Astro.props;
         canvas.addEventListener("touchend", () => (isHovering = false));
 
         window.addEventListener("resize", resizeCanvas);
-        resizeCanvas();
+        loadFont().then(() => {
+            resizeCanvas();
+        });
     });
 </script>
 
