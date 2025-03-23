@@ -47,9 +47,9 @@ import linkedin from '../assets/icons/linkedin.svg';
             lastTouchY = touchY;
         }
 
-        window.addEventListener("touchmove", handleTouchMove, { passive: true });
+        nav.addEventListener("touchmove", handleTouchMove, { passive: true });
 
-        window.addEventListener("touchstart", () => {
+        nav.addEventListener("touchstart", () => {
             nav.style.transform = "translateY(-35px)";
             isHidden = false;
         });
