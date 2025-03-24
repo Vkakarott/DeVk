@@ -32,7 +32,7 @@ const contact = {
 
 <Layout>
     <img class="fixed -top-20 -right-50 w-full h-full z-1 filter: blur-3xl" src={background.src} alt="" fetchpriority="high" />
-	<main class="flex-1 p-2 z-10 w-full h-[87%] flex flex-col mt-14 gap-3 px-7">
+	<main class="flex-1 p-2 z-10 w-full h-[88%] flex flex-col mt-14 gap-3 px-7 overflow-y-scroll scrollbar-hidden">
 		<div class="flex flex-wrap gap-10 w-full items-center justify-center">
 			<Card data={profile} />
 		</div>
@@ -50,3 +50,13 @@ const contact = {
 		</div>
 	</main>
 </Layout>
+
+<style>
+	scrollbar-hidden::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hidden {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+</style>
