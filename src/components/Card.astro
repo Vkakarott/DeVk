@@ -3,9 +3,9 @@ import ShinyText from "./ShinyText.astro";
 const { data } = Astro.props;
 ---
 
-<div class="flex flex-col gap-1 border border-zinc-800 bg-zinc-950 rounded-xl p-3 w-70 z-10">
+<div class="flex flex-col gap-1 border border-zinc-800 bg-zinc-950 rounded-xl p-3 h-fit z-10">
     {Object.entries(data).map(([key, value], index) => (
-        <div data-key={index} class="flex justify-between items-center">
+        <div data-key={index} class="flex justify-between items-center gap-15">
             <h2 class="font-bold text-white">{key}</h2>
             <ShinyText text={String(value)} size={0.8}/>
         </div>
