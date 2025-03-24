@@ -1,41 +1,147 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="/assets/favicon-D69ALD9j.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Vk Web Portfolio</title>
-    <script type="module" crossorigin src="/assets/main-Du3I0mCV.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-CQg8YJJz.css">
-  </head>
-  <body translate="no">
-    <header>
-      <div class="logo">VK DEV</div>
-      <button class="navbar" onclick="navBarToggle()">
-        <i class="bi bi-grid-3x3-gap-fill"></i>
-      </button>
-      <nav>
-        <a href="">Home</a>
-        <a href="src/pages/about.html">About</a>
-        <a href="src/pages/resume.html">Resume</a>
-        <a href="src/pages/projects.html">Projects</a>
-      </nav>
-    </header>
-    <main>
-      <section class="container">
-        <div class="name">DEVELOPER</div>
-        <img src="/assets/label-DH8CrjTn.png" alt="background-tecnologias">
-      </section>
-    </main>
-    <footer>
-      <div class="social">
-        <a href="http://github.com/Vkakarott" target="_blank" rel="github"><i class="bi bi-github"></i></a>
-        <a href="http://www.linkedin.com/in/vitorgomes-ti/" target="_blank" rel="linkedin"><i class="bi bi-linkedin"></i></a>
-      </div>
-    </footer>
-    <canvas style="position: absolute; top: 0; left: 0;"></canvas>
-  </body>
+<!DOCTYPE html><html lang="pt-br" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="../assets/logo.svg"><meta name="generator" content="Astro v5.5.3"><title>Dev Vk</title><link rel="stylesheet" href="/_astro/index.DfHLQUe3.css">
+<style>@import"https://fonts.googleapis.com/css2?family=Audiowide&display=swap";.text[data-astro-cid-yqbm6uqv]{transform:translate(-50%);transition:opacity .8s ease-in-out,filter .8s ease-in-out}.active[data-astro-cid-yqbm6uqv]{opacity:1!important;filter:blur(0px)!important}
+.shiny-text[data-astro-cid-rmz3q7u6]{color:#cacacaa4;background:linear-gradient(120deg,#fff0 50%,#fff 65%,#fff0 70%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;display:inline-block;animation:shine 5s linear infinite}@keyframes shine{0%{background-position:100%}to{background-position:-100%}}
+</style></head> <body data-astro-cid-sckkx6r4> <div class="p-1 fixed top-1 left-7"> <img src="/_astro/logo.DWYkc1Fm.svg" width="115" height="50" alt="Logo pagr"> </div>  <main class="flex-1 z-10 h-full w-full"> <section class="flex flex-col h-full items-center"> <img class="p-2 z-10 w-30" src="/_astro/banner.BdTfZUsS.svg" alt="Label portifolio"> <div class="flex flex-col justify-center items-center h-full pb-20"> <div class="flex justify-center items-center" data-text="DESENVOLVEDOR" data-astro-cid-hfvjbe3u> <canvas id="fuzzyTextCanvas" class="block z-10" data-astro-cid-hfvjbe3u></canvas> </div> <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("fuzzyTextCanvas");
+        const ctx = canvas.getContext("2d");
 
-  <script src="src/scripts/main.js"></script>
-</html>
+        const text = canvas.parentElement.dataset.text;
+        const fontSize = Math.max(37, window.innerWidth * 0.05);
+        const fontWeight = "900";
+        const fontFamily = "Audiowide";
+        const color = "#ffffff";
+        const baseIntensity = 0.10;
+        const hoverIntensity = 0.4;
+        const fuzzRange = 30;
+
+        let isHovering = false;
+
+        async function loadFont() {
+            await document.fonts.load(`${fontWeight} ${fontSize}px ${fontFamily}`);
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = 100;
+            drawText();
+        }
+
+        function drawText() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+            ctx.fillStyle = color;
+            ctx.textBaseline = "middle";
+            
+            const textMetrics = ctx.measureText(text);
+            const textX = (canvas.width - textMetrics.width - 20) / 2;
+            const textY = canvas.height / 2;
+
+            const offscreenCanvas = document.createElement("canvas");
+            const offCtx = offscreenCanvas.getContext("2d");
+            offscreenCanvas.width = textMetrics.width +20;
+            offscreenCanvas.height = fontSize * 1.2;
+
+            offCtx.font = ctx.font;
+            offCtx.fillStyle = color;
+            offCtx.textBaseline = "middle";
+            offCtx.fillText(text, 10, offscreenCanvas.height / 2);
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let intensity = isHovering ? hoverIntensity : baseIntensity;
+
+                for (let y = 0; y < offscreenCanvas.height; y++) {
+                    let dx = Math.floor(intensity * (Math.random() - 0.5) * fuzzRange);
+                    ctx.drawImage(
+                        offscreenCanvas,
+                        0, y, offscreenCanvas.width, 1,
+                        textX + dx, textY - offscreenCanvas.height / 2 + y, offscreenCanvas.width, 1
+                    );
+                }
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        function checkHover(event) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const textMetrics = ctx.measureText(text);
+            const textX = (canvas.width - textMetrics.width) / 2;
+            const textY = canvas.height / 2;
+
+            const textWidth = textMetrics.width;
+            const textHeight = fontSize * 0.8;
+
+            isHovering = x >= textX && x <= textX + textWidth && y >= textY - textHeight / 2 && y <= textY + textHeight / 2;
+        }
+
+        function checkTouch(event) {
+            const touch = event.touches[0];
+            if (!touch) return;
+            checkHover({ clientX: touch.clientX, clientY: touch.clientY });
+        }
+
+        canvas.addEventListener("mouseenter", () => (isHovering = true));
+        canvas.addEventListener("mousemove", checkHover);
+        canvas.addEventListener("mouseleave", () => (isHovering = false));
+        canvas.addEventListener("touchmove", checkTouch, { passive: false });
+        canvas.addEventListener("touchend", () => (isHovering = false));
+
+        window.addEventListener("resize", resizeCanvas);
+        loadFont().then(() => {
+            resizeCanvas();
+        });
+    });
+</script>  <div class="flex justify-center items-center w-full z-10 mb-15" data-astro-cid-yqbm6uqv> <div class="text-4xl text-nowrap font-bold text-white" data-astro-cid-yqbm6uqv> <span class="absolute text transition-all ease-in-out duration-1000 opacity-0 blur-2xl active" data-astro-cid-yqbm6uqv> Front End </span><span class="absolute text transition-all ease-in-out duration-1000 opacity-0 blur-2xl" data-astro-cid-yqbm6uqv> Back End </span><span class="absolute text transition-all ease-in-out duration-1000 opacity-0 blur-2xl" data-astro-cid-yqbm6uqv> Mobile </span><span class="absolute text transition-all ease-in-out duration-1000 opacity-0 blur-2xl" data-astro-cid-yqbm6uqv> Full Stack </span> </div> </div> <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const texts = document.querySelectorAll('.text');
+        let index = 0;
+
+        function rotateText() {
+            texts[index].classList.remove('active', 'opacity-100', 'blur-0');
+            texts[index].classList.add('opacity-0', 'blur-2xl');
+
+            index = (index + 1) % texts.length;
+
+            texts[index].classList.remove('opacity-0', 'blur-2xl');
+            texts[index].classList.add('active', 'opacity-100', 'blur-0');
+        }
+
+        setInterval(rotateText, 3000);
+    });
+</script>  <div class="flex justify-center items-center z-10" data-astro-cid-rmz3q7u6> <div class="shiny-text text-center" style="animation-duration:5;font-size:1rem" data-astro-cid-rmz3q7u6> Criando soluções inovadoras, completas e experiências imersivas. </div> </div>  </div> </section> </main>  <div id="floatingNav" class="flex bg-zinc-900 rounded-4xl p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 hover:-translate-y-1/5 transition-all duration-300 drop-shadow-[0_30px_30px_rgba(200,200,255,0.4)] z-10"> <nav class="flex flex-row p-1 border-1 rounded-3xl gap-3 px-4"> <a href="/" class="p-2 w-10"> <img class="w-5" src="/_astro/home.08vM3pgC.svg" alt="Home icon"> </a> <a href="/skills/" class="p-2 w-10"> <img class="w-5" src="/_astro/kanban.DJdwDYBl.svg" alt="Projects icon"> </a> <a href="/profile/" class="p-2 w-10"> <img class="w-5" src="/_astro/person.Ch6sqY_H.svg" alt="Profile icon"> </a> <span class="h-full border-l-1"></span> <a href="https://github.com/Vkakarott" target="_blank" class="p-2 w-10"> <img class="w-5" src="/_astro/github.BoY54wJd.svg" alt="Github icon"> </a> <a href="https://www.linkedin.com/in/vitorgomes-ti/" target="_blank" class="p-2 w-10"> <img class="w-5" src="/_astro/linkedin.B4g2Mf5d.svg" alt="Linkedin icon"> </a> </nav> </div> <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.getElementById("floatingNav");
+        let lastTouchY = 0;
+        let isHidden = false;
+
+        function handleTouchMove(event) {
+            const touchY = event.touches[0].clientY;
+
+            if (touchY < lastTouchY && !isHidden) {
+                nav.style.transform = "translateY(-35px)";
+                isHidden = true;
+            } else if (touchY > lastTouchY && isHidden) {
+                nav.style.transform = "translateY(0)";
+                isHidden = false;
+            }
+
+            lastTouchY = touchY;
+        }
+
+        nav.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+        nav.addEventListener("touchstart", () => {
+            nav.style.transform = "translateY(-35px)";
+            isHidden = false;
+        });
+    });
+</script> </body></html>
