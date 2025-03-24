@@ -14,7 +14,7 @@ const TOOLS = ["linux/linux-original", "vscode/vscode-original", "git/git-origin
 
 <Layout>
 	<main class="flex-1 z-10 h-full w-full mt-10 justify-center items-center">
-		<div class="flex flex-wrap gap-4 justify-center z-10 max-h-[80%] overflow-y-scroll py-5 mb-5">		
+		<div class="flex flex-wrap gap-4 justify-center z-10 max-h-[80%] overflow-y-scroll py-5 mb-5 max-w-7xl mx-auto scrollbar-hidden">		
 			<IconsTec title="Linguagens" description="Tenho experiência em diversas linguagens, sendo Python a linguagem em que estou iniciando o aprendizado e JavaScript a de maior domínio atualmente." tecs={LENGUAGES} size={40}/>
 			<IconsTec title="Principais Tecnologias" description="As tecnologias que mais tenho experiência e domínio, sendo elas as que mais utilizo em meus projetos. (não parece mas sou predominantemente Frontend)" tecs={MAIN_TECHNOLOGIES} size={40}/>
 			<IconsTec title="Estilização" description="Com TailwindCss como a principal ferramenta de estilização, alem do StyleSheet para mobile, também tenho experiência com Bootstrap e CSS puro." tecs={STYLES} size={40}/>
@@ -26,3 +26,12 @@ const TOOLS = ["linux/linux-original", "vscode/vscode-original", "git/git-origin
 	</main>
 </Layout>
 
+<style>
+	scrollbar-hidden::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hidden {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+</style>
